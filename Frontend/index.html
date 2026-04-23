@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Portfolio | Dark Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+                <div class="md:hidden">
+                    <button id="menu-toggle" 
+                            class="text-slate-200 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active">Accueil</a>
+                    <a href="#about" class="nav-link">À propos</a>
+                    <a href="#skills" class="nav-link">Compétences</a>
+                    <a href="#projects" class="nav-link">Projets</a>
+                    <a href="#contact" class="nav-link">Contacts</a>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <a href="#home" class="block py-2 nav-link active">Accueil</a>
+                <a href="#about" class="block py-2 nav-link">À propos</a>
+                <a href="#skills" class="block py-2 nav-link">Compétences</a>
+                <a href="#projects" class="block py-2 nav-link">Projets</a>
+                <a href="#contact" class="block py-2 nav-link">Contacts</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 
+                    flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <!-- ✅ IDs ajoutés pour dynamisme -->
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    Salut, Je suis 
+                    <span id="profile-nom" class="gradient-text">Fidelys</span>
+                </h1>
+                <h2 id="profile-titre" 
+                    class="text-2xl md:text-3xl font-semibold mb-6 text-slate-300">
+                    Développeur Full stack
+                </h2>
+                <p id="profile-bio" class="text-lg mb-8 text-slate-400 max-w-lg">
+                    Je crée des expériences numériques exceptionnelles, rapides, 
+                    accessibles et visuellement attrayantes.
+                    Créons ensemble quelque chose d'incroyable.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" 
+                       class="px-6 py-3 rounded-full btn-primary font-medium">
+                       Engagez-moi
+                    </a>
+                    <a href="#projects" 
+                       class="px-6 py-3 rounded-full border border-primary 
+                              text-primary font-medium hover:bg-primary/10 transition">
+                       Voir mes projets
+                    </a>
+                </div>
+                <div class="flex mt-8 space-x-4">
+                    <a href="#" class="social-icon text-xl w-10 h-10 flex items-center 
+                                      justify-center rounded-full bg-slate-800 hover:bg-primary">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon text-xl w-10 h-10 flex items-center 
+                                      justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon text-xl w-10 h-10 flex items-center 
+                                      justify-center rounded-full bg-slate-800 hover:bg-blue-400">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon text-xl w-10 h-10 flex items-center 
+                                      justify-center rounded-full bg-slate-800 hover:bg-pink-600">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 rounded-full 
+                                bg-gradient-to-br from-primary to-secondary 
+                                blur-xl opacity-20"></div>
+                    <!-- ✅ ID ajouté -->
+                    <img id="profile-photo"
+                         src="Images/profil.png" 
+                         alt="Profile" 
+                         class="relative w-full h-full object-cover 
+                                rounded-full border-4 border-slate-800 floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark/90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">
+                Qui suis-je?
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- ✅ IDs ajoutés -->
+                    <p id="about-bio1" class="text-slate-400 mb-6">
+                        Je suis un développeur Full Stack passionné avec plus de 5 ans 
+                        d'expérience dans la création d'applications web modernes.
+                    </p>
+                    <p id="about-bio2" class="text-slate-400 mb-8">
+                        Mon objectif principal est de combiner le design et la fonctionnalité 
+                        afin de livrer des projets de haute qualité.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!-- ✅ ID ajouté pour lien CV dynamique -->
+                        <a id="cv-link" href="CV_Fidelys.pdf" 
+                           class="px-6 py-3 rounded-full btn-primary font-medium" 
+                           download>
+                            Télécharger CV
+                        </a>
+                        <a href="#contact" 
+                           class="px-6 py-3 rounded-full border border-primary 
+                                  text-primary font-medium hover:bg-primary/10 transition">
+                            Contactez-moi
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img id="about-photo1" src="Images/about1.jpg" alt="About image" 
+                         class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    <img id="about-photo2" src="Images/about2.jpg" alt="About image" 
+                         class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    <img id="about-photo3" src="Images/about3.jpg" alt="About image" 
+                         class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    <img id="about-photo4" src="Images/about4.jpg" alt="About image" 
+                         class="rounded-lg shadow-lg w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">
+                Mes Compétences
+            </h2>
+            <!-- ✅ ID ajouté pour chargement dynamique -->
+            <div id="skills-container" class="grid md:grid-cols-2 gap-12">
+                <div id="skills-bars">
+                    <p id="skills_intro" class="text-slate-400 mb-6">
+                        Voici quelques-unes des technologies et outils que 
+                        j'utilise fréquemment dans mes projets:
+                    </p>
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold">HTML & CSS</h3>
+                        <div class="skill-bar w-full mt-1">
+                            <div class="skill-progress w-[90%]"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold">JavaScript</h3>
+                        <div class="skill-bar w-full mt-1">
+                            <div class="skill-progress w-[85%]"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold">React</h3>
+                        <div class="skill-bar w-full mt-1">
+                            <div class="skill-progress w-[80%]"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold">Tailwind CSS</h3>
+                        <div class="skill-bar w-full mt-1">
+                            <div class="skill-progress w-[90%]"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="skills-icons" class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col items-center justify-center 
+                                bg-slate-800 p-4 rounded-lg shadow-lg">
+                        <i class="fab fa-html5 text-4xl gradient-text mb-2"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center 
+                                bg-slate-800 p-4 rounded-lg shadow-lg">
+                        <i class="fab fa-css3-alt text-4xl gradient-text mb-2"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center 
+                                bg-slate-800 p-4 rounded-lg shadow-lg">
+                        <i class="fab fa-js text-4xl gradient-text mb-2"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center 
+                                bg-slate-800 p-4 rounded-lg shadow-lg">
+                        <i class="fab fa-react text-4xl gradient-text mb-2"></i>
+                        <span>React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark/90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">
+                Mes Projets
+            </h2>
+            <!-- ✅ ID ajouté pour chargement dynamique -->
+            <div id="projects-grid" class="grid md:grid-cols-3 gap-8">
+                <div class="project-card p-4 rounded-lg card-hover">
+                    <img src="Images/projet1.jpg" alt="Project 1" 
+                         class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">
+                        Plateforme E-commerce
+                    </h3>
+                    <p class="text-slate-400 mb-2">
+                        Une plateforme e-commerce complète, développée avec 
+                        React, Node.js et MongoDB.
+                    </p>
+                    <a href="https://github.com/basir/node-react-ecommerce" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-primary hover:underline">View Project</a>
+                </div>
+                <div class="project-card p-4 rounded-lg card-hover">
+                    <!-- ✅ Casse corrigée -->
+                    <img src="Images/projet2.jpg" alt="Project 2" 
+                         class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">
+                        Application de gestion des tâches
+                    </h3>
+                    <p class="text-slate-400 mb-2">
+                        Une application de productivité pour gérer les tâches 
+                        avec une fonctionnalité de glisser-déposer.
+                    </p>
+                    <a href="https://kanban-task-management-app.netlify.app/" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-primary hover:underline">View Project</a>
+                </div>
+                <div class="project-card p-4 rounded-lg card-hover">
+                    <!-- ✅ Casse corrigée -->
+                    <img src="Images/projet3.jpg" alt="Project 3" 
+                         class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">
+                        Site de portfolio
+                    </h3>
+                    <p class="text-slate-400 mb-2">
+                        Un site de portfolio responsive, construit selon des 
+                        principes de design modernes.
+                    </p>
+                    <a href="https://portfolio-website-beta-snowy-73.vercel.app/" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="text-primary hover:underline">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">
+                Contactez-moi
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <!-- ✅ action="#" remplacé par id -->
+                <form id="contact-form" class="grid gap-6">
+                    <input type="text" name="name" 
+                           placeholder="Your Name" 
+                           class="contact-input p-4 rounded-lg w-full">
+                    <input type="email" name="email" 
+                           placeholder="Your Email" 
+                           class="contact-input p-4 rounded-lg w-full">
+                    <textarea name="message" rows="5" 
+                              placeholder="Your Message" 
+                              class="contact-input p-4 rounded-lg w-full">
+                    </textarea>
+                    <button type="submit" id="submit-btn"
+                            class="btn-primary px-6 py-3 rounded-full font-medium">
+                        <span id="btn-text">Send Message</span>
+                    </button>
+                </form>
+                <div class="mt-12 text-center text-slate-400">
+                    <p>
+                        <strong>📞 Phone:</strong>
+                        <a href="tel:+261328661218" class="contact-link">
+                            +261 32 86 612 18
+                        </a>
+                    </p>
+                    <p>
+                        <strong>✉️ Email:</strong>
+                        <a href="mailto:botovelofidelys@gmail.com" class="contact-link">
+                            botovelofidelys@gmail.com
+                        </a>
+                    </p>
+                    <p><strong>📍 Location:</strong> Antsiranana, Madagascar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+                    <p class="text-slate-400 mt-2">
+                        © 2026 BOTOVELO Fidelys. Tous droits réservés.
+                    </p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-primary transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-blue-600 transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-blue-400 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-pink-600 transition">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 
+                        text-center text-slate-500">
+                <p>
+                    Made with <i class="fas fa-heart text-red-500"></i> 
+                    and lots of <i class="fas fa-coffee text-amber-500"></i>
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

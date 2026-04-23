@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-slate-200 min-h-screen 
+             flex items-center justify-center">
+
+    <div class="w-full max-w-md p-8 rounded-lg bg-slate-800 
+                shadow-xl mx-4">
+
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold gradient-text">
+                Portfolio
+            </h1>
+            <p class="text-slate-400 mt-2">
+                Connexion Administration
+            </p>
+        </div>
+
+        <!-- Formulaire -->
+        <form id="login-form" class="grid gap-6">
+
+            <div>
+                <label class="text-slate-400 text-sm mb-1 block">
+                    Email
+                </label>
+                <input 
+                    type="email" 
+                    id="email"
+                    placeholder="votre@email.com" 
+                    class="contact-input p-4 rounded-lg w-full">
+            </div>
+
+            <div>
+                <label class="text-slate-400 text-sm mb-1 block">
+                    Mot de passe
+                </label>
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        id="password"
+                        placeholder="••••••••" 
+                        class="contact-input p-4 rounded-lg w-full">
+                    <!-- Bouton voir mot de passe -->
+                    <button type="button" id="toggle-password"
+                            class="absolute right-4 top-4 
+                                   text-slate-400 hover:text-primary">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Message erreur -->
+            <p id="error-msg" 
+               class="text-red-500 text-center text-sm hidden">
+            </p>
+
+            <!-- Bouton connexion -->
+            <button type="submit" id="login-btn"
+                    class="btn-primary px-6 py-3 
+                           rounded-full font-medium w-full">
+                <span id="btn-text">
+                    <i class="fas fa-sign-in-alt mr-2"></i>
+                    Se connecter
+                </span>
+            </button>
+
+        </form>
+
+        <!-- Retour au site -->
+        <div class="text-center mt-6">
+            <a href="index.html" 
+               class="text-slate-500 hover:text-primary 
+                      text-sm transition">
+                <i class="fas fa-arrow-left mr-1"></i>
+                Retour au site
+            </a>
+        </div>
+
+    </div>
+
+    <script src="admin-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-slate-200">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm 
+                z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 
+                    flex justify-between items-center">
+            <span class="text-xl font-bold gradient-text">
+                <i class="fas fa-shield-alt mr-2"></i>
+                Admin Dashboard
+            </span>
+            <div class="flex items-center gap-6">
+                <span id="admin-email" 
+                      class="text-slate-400 text-sm hidden md:block">
+                </span>
+                <a href="index.html" 
+                   class="text-slate-400 hover:text-primary 
+                          transition text-sm">
+                    <i class="fas fa-eye mr-1"></i>
+                    Voir le site
+                </a>
+                <button id="logout-btn" 
+                        class="text-red-400 hover:text-red-300 
+                               transition text-sm">
+                    <i class="fas fa-sign-out-alt mr-1"></i>
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 pt-28 pb-12">
+
+        <!-- ===== PROJETS ===== -->
+        <section class="mb-16">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold gradient-text">
+                    <i class="fas fa-project-diagram mr-2"></i>
+                    Projets
+                </h2>
+                <button onclick="openModal('project')" 
+                        class="btn-primary px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-plus mr-1"></i> Ajouter
+                </button>
+            </div>
+            <div id="projects-list" class="grid md:grid-cols-3 gap-6">
+                <p class="text-slate-400">Chargement...</p>
+            </div>
+        </section>
+
+        <!-- ===== COMPÉTENCES ===== -->
+        <section class="mb-16">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold gradient-text">
+                    <i class="fas fa-code mr-2"></i>
+                    Compétences
+                </h2>
+                <button onclick="openModal('skill')" 
+                        class="btn-primary px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-plus mr-1"></i> Ajouter
+                </button>
+            </div>
+            <div id="skills-list" class="grid md:grid-cols-2 gap-4">
+                <p class="text-slate-400">Chargement...</p>
+            </div>
+        </section>
+
+        <!-- ===== MESSAGES ===== -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold gradient-text mb-6">
+                <i class="fas fa-envelope mr-2"></i>
+                Messages reçus
+            </h2>
+            <div id="messages-list" class="grid gap-4">
+                <p class="text-slate-400">Chargement...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ===== MODAL Projet ===== -->
+    <div id="modal-project" 
+         class="fixed inset-0 bg-black/70 z-50 hidden 
+                items-center justify-center">
+        <div class="bg-slate-800 p-8 rounded-lg w-full 
+                    max-w-lg mx-4 shadow-xl">
+            <h3 id="modal-project-title"
+                class="text-2xl font-bold mb-6 gradient-text">
+                Ajouter un Projet
+            </h3>
+            <form id="project-form" class="grid gap-4">
+                <input type="hidden" id="project-id">
+                <input type="text" id="project-titre" 
+                       placeholder="Titre du projet"
+                       class="contact-input p-3 rounded-lg w-full">
+                <textarea id="project-description" 
+                          placeholder="Description" rows="3"
+                          class="contact-input p-3 rounded-lg w-full">
+                </textarea>
+                <input type="text" id="project-image" 
+                       placeholder="Chemin image (Images/projet1.jpg)"
+                       class="contact-input p-3 rounded-lg w-full">
+                <input type="text" id="project-lien" 
+                       placeholder="Lien du projet (https://...)"
+                       class="contact-input p-3 rounded-lg w-full">
+                <input type="text" id="project-technologies" 
+                       placeholder="Technologies (React, Node.js...)"
+                       class="contact-input p-3 rounded-lg w-full">
+                <div class="flex gap-4 mt-2">
+                    <button type="submit" 
+                            class="btn-primary px-6 py-3 
+                                   rounded-full font-medium flex-1">
+                        <i class="fas fa-save mr-1"></i>
+                        Enregistrer
+                    </button>
+                    <button type="button" 
+                            onclick="closeModal('project')"
+                            class="px-6 py-3 rounded-full border 
+                                   border-slate-600 flex-1 
+                                   hover:bg-slate-700 transition">
+                        Annuler
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== MODAL Compétence ===== -->
+    <div id="modal-skill" 
+         class="fixed inset-0 bg-black/70 z-50 hidden 
+                items-center justify-center">
+        <div class="bg-slate-800 p-8 rounded-lg w-full 
+                    max-w-md mx-4 shadow-xl">
+            <h3 id="modal-skill-title"
+                class="text-2xl font-bold mb-6 gradient-text">
+                Ajouter une Compétence
+            </h3>
+            <form id="skill-form" class="grid gap-4">
+                <input type="hidden" id="skill-id">
+                <input type="text" id="skill-nom" 
+                       placeholder="Nom (JavaScript)"
+                       class="contact-input p-3 rounded-lg w-full">
+                <input type="number" id="skill-pourcentage" 
+                       placeholder="Pourcentage (85)"
+                       min="0" max="100"
+                       class="contact-input p-3 rounded-lg w-full">
+                <input type="text" id="skill-icone" 
+                       placeholder="Icône FontAwesome (fab fa-js)"
+                       class="contact-input p-3 rounded-lg w-full">
+                <div class="flex gap-4 mt-2">
+                    <button type="submit" 
+                            class="btn-primary px-6 py-3 
+                                   rounded-full font-medium flex-1">
+                        <i class="fas fa-save mr-1"></i>
+                        Enregistrer
+                    </button>
+                    <button type="button" 
+                            onclick="closeModal('skill')"
+                            class="px-6 py-3 rounded-full border 
+                                   border-slate-600 flex-1 
+                                   hover:bg-slate-700 transition">
+                        Annuler
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
