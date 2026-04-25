@@ -72,10 +72,10 @@ fetch(`${API}/about`)
     document.getElementById('cv-link').href = data.cv;
 
     // Images about
-    document.getElementById("about-photo1").src = data.photo1;
-    document.getElementById("about-photo2").src = data.photo2;
-    document.getElementById("about-photo3").src = data.photo3;
-    document.getElementById("about-photo4").src = data.photo4;
+    document.getElementById("about-photo1").src = data.photo1 ||"";
+    document.getElementById("about-photo2").src = data.photo2||"";
+    document.getElementById("about-photo3").src = data.photo3||"";
+    document.getElementById("about-photo4").src = data.photo4||"";
 });
 
 // =======================
