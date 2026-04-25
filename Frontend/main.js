@@ -66,6 +66,7 @@ fetch(`${API}/hero`)
 fetch(`${API}/about`)
 .then(res => res.json())
 .then(data => {
+    console.log("ABOUT DATA:",data);
     if (!data) return;
     document.getElementById("about-bio1").textContent = data.bio1;
     document.getElementById("about-bio2").textContent = data.bio2;
