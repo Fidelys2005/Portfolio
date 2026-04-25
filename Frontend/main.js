@@ -81,24 +81,40 @@ fetch(`${API}/about`)
 // =======================
 // SKILLS
 // =======================
-fetch(`${API}/skills-intro`)
+fetch(`${API}/skills`)
 .then(res => res.json())
-.then(data => {
-    document .getElementById("skills_intro") .textContent=data.intro;
-    const container = document.getElementById('skills-bars');
+.then(skills => {
+    if (!skills) return;
 
-    if (!container) return;
-
-    container.innerHTML = skills.map(skill => `
-        <div class="mb-4">
-            <h3 class="text-lg font-semibold">${skill.nom}</h3>
-            <div class="skill-bar w-full mt-1">
-                <div class="skill-progress" style="width:${skill.pourcentage}%"></div>
+    // Barres de progression
+    document.getElementById('skills-bars').innerHTML = `
+        <p class="text-slate-400 mb-6">
+            Voici quelques-unes des technologies que j'utilise:
+        </p>
+        ${skills.map(skill => `
+            <div class="mb-4">
+                <h3 class="text-lg font-semibold">${skill.nom}</h3>
+                <div class="skill-bar w-full mt-1">
+                    <div class="skill-progress" 
+                         style="width:${skill.pourcentage}%">
+                    </div>
+                </div>
             </div>
+        `).join('')}
+    `;
+
+    // Icônes
+    document.getElementById('skills-icons').innerHTML = 
+    skills.map(skill => `
+        <div class="flex flex-col items-center justify-center 
+                    bg-slate-800 p-4 rounded-lg shadow-lg">
+            <i class="${skill.icone} text-4xl gradient-text mb-2"></i>
+            <span>${skill.nom}</span>
         </div>
     `).join('');
 })
-.catch(err => console.log('Skills API error:', err));
+.catch(err => console.error('Skills error:', err));
+
 
 // =======================
 // PROJECTS
@@ -107,21 +123,25 @@ fetch(`${API}/projects`)
 .then(res => res.json())
 .then(projects => {
     const grid = document.getElementById('projects-grid');
-
     if (!grid) return;
 
     grid.innerHTML = projects.map(p => `
         <div class="project-card p-4 rounded-lg card-hover">
-            <img src="${p.image}" alt="${p.titre}" class="rounded-lg mb-4 w-full h-48 object-cover">
+            <img src="${p.image}" alt="${p.titre}" 
+                 class="rounded-lg mb-4 w-full h-48 object-cover"
+                 onerror="this.src='https://via.placeholder.com/400x200'">
             <h3 class="text-xl font-semibold mb-2">${p.titre}</h3>
             <p class="text-slate-400 mb-2">${p.description}</p>
-            <a href="${p.lien}" target="_blank" class="text-primary hover:underline">
+            <a href="${p.lien}" target="_blank" 
+               rel="noopener noreferrer"
+               class="text-primary hover:underline">
                 View Project
             </a>
         </div>
     `).join('');
 })
-.catch(err => console.log('Projects API error:', err));
+.catch(err => console.error('Projects error:', err));
+
 
 // =======================
 // CONTACT FORM
@@ -154,7 +174,7 @@ if (form) {
             alert('✅ Message envoyé avec succès !');
             form.reset();
         })
-        .catch(() => alert('❌ Erreur lors de l’envoi'))
+        .catch(() => alert('❌ Erreur lors de l\’envoi'))
         .finally(() => {
             btn.disabled = false;
             btnText.textContent = 'Send Message';
