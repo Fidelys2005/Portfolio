@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000/api';
+const API = 'https://portfolio-backend-gxh9.onrender.com/api';
 const token = localStorage.getItem('adminToken');
 
 // ===== VÉRIFIER TOKEN =====
