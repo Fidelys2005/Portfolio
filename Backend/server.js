@@ -11,6 +11,22 @@ app.use(express.json());
 app.use(express.static('../frontend'));
 app.use(express.urlencoded({extended:true}));
 
+//Ajouter route racine
+app.get('/',(req,res)=>{
+    res.json({
+        message:'✅ API Portfolio fonctionne!',
+        routes: [
+            'api/hero',
+            'api/about',
+            'api/skills',
+            'api/projects',
+            'api/contact',
+            'api/auth'
+
+        ]
+    });
+});
+
 // Routes
 app.use('/api/hero',  require('./routes/hero'));
 app.use('/api/about', require('./routes/about'));
